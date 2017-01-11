@@ -1,0 +1,5 @@
+#!/bin/bash
+watched_dir=/home/etouraille/src/simple-builder/pushing-time
+while inotifywait -qqre modify "$watched_dir"; do
+    /bin/bash /home/etouraille/kat.sh --env staging
+done

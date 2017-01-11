@@ -1,0 +1,1 @@
+setsid /home/etouraille/script/dir.change.listen >/var/log/hook.dir.change.log 2>&1 < /dev/null &
