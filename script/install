@@ -1,0 +1,15 @@
+#!/bin/bash
+
+sudo usermod -u 500 www-data
+
+cd /home/etouraille/src/simple-builder/container
+
+sudo docker-compose kill
+sudo docker-compose build
+
+sudo docker-compose up -d
+
+cd /home/etouraille/src/simple-builder
+
+sudo chown -R www-data:www-data .
+
