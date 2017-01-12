@@ -4,10 +4,13 @@ $postedRawData = file_get_contents('php://input');
 
 $payload = json_decode( $postedRawData , true );
 
+$f = fopen('/src/log', 'w+');
+fwrite($f, $postedRawData);
+fclose($f);
 
 $ref = $payload['ref'];
 
-if('refs/head/DEV' == $ref ) {
+if('refs/heads/DEV' == $ref ) {
 
 	var_dump(is_dir('/src/push-time'));
 
