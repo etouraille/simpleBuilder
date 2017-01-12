@@ -4,7 +4,6 @@ $postedRawData = file_get_contents('php://input');
 
 $payload = json_decode( $postedRawData , true );
 
-
 $ref = $payload['ref'];
 
 if('refs/heads/DEV' == $ref ) {
