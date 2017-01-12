@@ -11,5 +11,12 @@ sudo docker-compose up -d
 
 cd /home/etouraille/src/simple-builder
 
-sudo chown -R www-data:www-data .
+sudo chown -R etouraille:etouraille .
 
+git fetch 
+git rebase origin/master
+git submodule update
+
+cd /home/etouraille/src/simple-builder
+
+sudo chown -R www-data:www-data .

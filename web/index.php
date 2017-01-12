@@ -7,9 +7,7 @@ $payload = json_decode( $postedRawData , true );
 
 $ref = $payload['ref'];
 
-if('refs/head/DEV' == $ref ) {
-
-	var_dump(is_dir('/src/push-time'));
+if('refs/heads/DEV' == $ref ) {
 
 	$fp = fopen(sprintf('/src/push-time/%s',date('m-d-y.H:i:s')),'w+');
 	fwrite($fp, 'push on branch dev');
