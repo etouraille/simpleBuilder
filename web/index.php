@@ -11,7 +11,7 @@ $host = trim(preg_replace('/\s\s+/', ' ', $host));
 
 if('refs/heads/DEV' == $ref ) {
 
-	$cd = sprintf("setsid ssh etouraille@%s '/home/etouraille/kat --env staging --from-exec true > /var/log/install.log' >/dev/null 2>&1 < /dev/null &", $host );
+	$cd = sprintf("setsid ssh -o StrictHostKeyChecking=no etouraille@%s '/home/etouraille/kat --env staging --from-exec true > /var/log/install.log' >/dev/null 2>&1 < /dev/null &", $host );
 	exec($cd);
 
 }
