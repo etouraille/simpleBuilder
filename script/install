@@ -29,4 +29,7 @@ if [ $? -ne 0 ];then
 	echo $key >> /home/etouraille/.ssh/authorized_keys
 else
 	echo "key not added"
-fi	
+fi
+
+string=$(sudo ip addr show docker0)
+echo $string | grep -o 'inet [^/]*' | awk '{ print $2}' > /home/etouraille/src/simple-builder/config/host_ip

@@ -6,10 +6,12 @@ $payload = json_decode( $postedRawData , true );
 
 $ref = $payload['ref'];
 
+$password = 'toto';
+$host_ip = file_get_contents('/src/config/host_ip');
+
 if('refs/heads/DEV' == $ref ) {
 
-	$fp = fopen(sprintf('/src/push-time/%s',date('m-d-y.H:i:s')),'w+');
-	fwrite($fp, 'push on branch dev');
-	fclose($fp);
+	$cd = sprintf("ssh etouraille@%s echo '%s'|sudo -S /home/etouraille/kat --env staging", $host_ip, $password);
+	exec($cd);
 
 }
