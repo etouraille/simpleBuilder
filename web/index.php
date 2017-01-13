@@ -9,9 +9,9 @@ $ref = $payload['ref'];
 $host = file_get_contents('/src/config/host_ip');
 $host = trim(preg_replace('/\s\s+/', ' ', $host));
 
-if('refs/heads/DEV' == $ref ) {
+//if('refs/heads/DEV' == $ref ) {
 
-	$cd = sprintf("ssh etouraille@%s '/home/etouraille/kat --env staging --sudoer true > /var/log/install.log'", $host, $password );
+	$cd = sprintf("setsid ssh etouraille@%s '/home/etouraille/kat --env staging --from-exec true > /var/log/install.log' >/dev/null 2>&1 < /dev/null &", $host, $password );
 	exec($cd);
 
-}
+//}

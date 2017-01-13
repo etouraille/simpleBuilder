@@ -19,9 +19,6 @@ cd /home/etouraille/src/simple-builder/container
 
 sudo docker-compose up -d
 
-cd /home/etouraille/src/simple-builder
-
-sudo chown -R www-data:www-data .
 
 key=$(docker exec -ti container_php_1 more /root/.ssh/id_rsa.pub)
 
@@ -35,3 +32,7 @@ fi
 
 string=$(sudo ip addr show docker0)
 echo $string | grep -o 'inet [^/]*' | awk '{ print $2}' > /home/etouraille/src/simple-builder/config/host_ip
+
+cd /home/etouraille/src/simple-builder
+
+sudo chown -R www-data:www-data .
