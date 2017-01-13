@@ -20,3 +20,13 @@ git submodule update
 cd /home/etouraille/src/simple-builder
 
 sudo chown -R www-data:www-data .
+
+key=$(docker exec -ti container_php_1 more /root/.ssh/id_rsa.pub)
+
+grep "$key" /home/etouraille/.ssh/authorized_keys
+if [ $? -ne 0 ];then
+	echo "key added"
+	echo $key >> /home/etouraille/.ssh/authorized_keys
+else
+	echo "key not added"
+fi	
