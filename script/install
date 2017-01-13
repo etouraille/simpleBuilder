@@ -5,7 +5,6 @@ sudo usermod -u 500 www-data
 cd /home/etouraille/src/simple-builder/container
 
 sudo docker-compose kill
-sudo docker-compose build
 
 cd /home/etouraille/src/simple-builder
 
@@ -17,10 +16,11 @@ git submodule update
 
 cd /home/etouraille/src/simple-builder/container
 
+sudo docker-compose build
 sudo docker-compose up -d
 
 
-key=$(docker exec -ti container_php_1 more /root/.ssh/id_rsa.pub)
+key=$(docker exec -ti container_php_1 more /var/www/.ssh/id_rsa.pub)
 
 grep "$key" /home/etouraille/.ssh/authorized_keys
 if [ $? -ne 0 ];then
