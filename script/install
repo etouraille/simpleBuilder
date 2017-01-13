@@ -7,8 +7,6 @@ cd /home/etouraille/src/simple-builder/container
 sudo docker-compose kill
 sudo docker-compose build
 
-sudo docker-compose up -d
-
 cd /home/etouraille/src/simple-builder
 
 sudo chown -R etouraille:etouraille .
@@ -16,6 +14,10 @@ sudo chown -R etouraille:etouraille .
 git fetch 
 git rebase origin/master
 git submodule update
+
+cd /home/etouraille/src/simple-builder/container
+
+sudo docker-compose up -d
 
 cd /home/etouraille/src/simple-builder
 
